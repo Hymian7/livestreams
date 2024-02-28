@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestream Viewer</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/styles.css') }}>
+</head>
+<body>
+    <h1>Livestream Viewer</h1>
+    <form method="post">
+        <label for="link">Enter Livestream Link:</label>
+        <input type="text" id="link" name="link" required>
+        <button type="submit">Get Livestreams</button>
+    </form>
+    {% if livestreams %}
+        <h2>Livestreams:</h2>
+        {% for livestream in livestreams %}
+            <h3>{{ livestream }}</h3>
+            <iframe src="{{ livestream }}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
