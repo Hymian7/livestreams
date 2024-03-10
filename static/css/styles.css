@@ -53,6 +53,22 @@ button:hover {
 
 #livestreams {
     text-align: center;
+    position: relative; /* Ensure positioning of the skip button relative to the livestream container */
+}
+
+#livestreams button {
+    display: block;
+    margin: 10px auto; /* Center the skip button horizontally */
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#livestreams button:hover {
+    background-color: #333;
 }
 
 .livestream-container {
