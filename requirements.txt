@@ -3,4 +3,3 @@ Werkzeug
 requests
 bs4
 gunicorn
-curl
