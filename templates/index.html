@@ -5,27 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livestream Viewer</title>
     <!-- Link to your external CSS file -->
-    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/styles.css') }}>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"">
 </head>
 <body>
     <div id="container">
         <h1>Livestream Viewer</h1>
-        <form method="post">
+        <form id="livestream-form">
             <label for="link">Enter Livestream Link:</label>
             <input type="text" id="link" name="link" required>
             <button type="submit">Get Livestreams</button>
         </form>
-        <div id="livestreams">
-            {% if livestreams %}
-                <h2>Livestreams:</h2>
-                {% for livestream in livestreams %}
-                    <div class="livestream-container">
-                        <h3>{{ livestream }}</h3>
-                        <iframe src="{{ livestream }}" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        <div id="loading-indicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading...</div>
         </div>
+        <div id="livestreams"></div>
     </div>
+    <script src="{{ url_for('static', filename='scripts/load.js') }}"></script>
 </body>
 </html>
