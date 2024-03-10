@@ -1,10 +1,11 @@
+import sys
 import logging
 from time import sleep
 import requests
 from bs4 import BeautifulSoup
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG)  # Set logging level to DEBUG
+logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)  # Set logging level to DEBUG
 
 def extract_and_follow_livestream_links(url):
     # Create a session to persist cookies across requests
