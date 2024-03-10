@@ -8,18 +8,24 @@
     <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/styles.css') }}>
 </head>
 <body>
-    <h1>Livestream Viewer</h1>
-    <form method="post">
-        <label for="link">Enter Livestream Link:</label>
-        <input type="text" id="link" name="link" required>
-        <button type="submit">Get Livestreams</button>
-    </form>
-    {% if livestreams %}
-        <h2>Livestreams:</h2>
-        {% for livestream in livestreams %}
-            <h3>{{ livestream }}</h3>
-            <iframe src="{{ livestream }}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-        {% endfor %}
-    {% endif %}
+    <div id="container">
+        <h1>Livestream Viewer</h1>
+        <form method="post">
+            <label for="link">Enter Livestream Link:</label>
+            <input type="text" id="link" name="link" required>
+            <button type="submit">Get Livestreams</button>
+        </form>
+        <div id="livestreams">
+            {% if livestreams %}
+                <h2>Livestreams:</h2>
+                {% for livestream in livestreams %}
+                    <div class="livestream-container">
+                        <h3>{{ livestream }}</h3>
+                        <iframe src="{{ livestream }}" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
